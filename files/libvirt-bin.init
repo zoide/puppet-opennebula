@@ -1,0 +1,23 @@
+# $Id: libvirt-bin.init 3969 2011-01-11 21:37:50Z uwaechte $
+#
+############ PUPPET MANAGED ###########################
+#
+#
+description "libvirt daemon"
+author "Dustin Kirkland <kirkland@canonical.com>"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+expect daemon
+respawn
+
+pre-start script
+	mkdir -p /var/run/libvirt
+	# Clean up a pidfile that might be left around
+	rm -f /var/run/libvirtd.pid
+end script
+
+# If you used to set $libvirtd_opts in /etc/default/libvirt-bin,
+# change the 'exec' line here instead.
+exec /usr/sbin/libvirtd -d -l

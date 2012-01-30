@@ -1,0 +1,15 @@
+# $Id: etc_default_libvirt-bin.erb 4200 2011-04-12 13:21:53Z uwaechte $
+######################
+## PUPPET MANAGED ####
+######################
+# Defaults for libvirt-bin initscript (/etc/init.d/libvirt-bin)
+# This is a POSIX shell fragment
+
+# Start libvirtd to handle qemu/kvm:
+start_libvirtd="<%= start_libvirtd %>"
+
+# options passed to libvirtd, add "-l" to listen on tcp
+libvirtd_opts="-d -l"
+
+# pass in location of kerberos keytab
+#export KRB5_KTNAME=/etc/libvirt/libvirt.keytab
