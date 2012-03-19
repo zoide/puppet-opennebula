@@ -117,7 +117,7 @@ dynamic_ownership = 0
 # can be mounted in different locations. libvirt will detect
 # where they are located.
 #
-# cgroup_controllers = [ "cpu", "devices" ]
+#cgroup_controllers = [ "cpu", "devices", "memory", "blkio", "cpuset" ]
 
 # This is the basic set of devices allowed / required by
 # all virtual machines.
@@ -132,9 +132,10 @@ dynamic_ownership = 0
 #    "/dev/null", "/dev/full", "/dev/zero",
 #    "/dev/random", "/dev/urandom",
 #    "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
-#    "/dev/rtc", "/dev/hpet", "/dev/net/tun",
+#    "/dev/rtc", "/dev/hpet",
 #]
 
+    
 # The default format for Qemu/KVM guest save images is raw; that is, the
 # memory from the domain is dumped out directly to a file.  If you have
 # guests with a large amount of memory, however, this can take up quite
