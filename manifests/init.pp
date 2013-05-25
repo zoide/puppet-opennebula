@@ -48,7 +48,7 @@ class opennebula::node::common ($ensure = "present",
         "opennebula::common" :
             ensure => $ensure
     }
-    Line <<| tag == "opennebula::rsa_keys::head" |>>
+    Common::Line <<| tag == "opennebula::rsa_keys::head" |>>
     #    pam::access::allow {
     #        "oneadmin_from_vmmaster" :
     #            users => "oneadmin",
@@ -89,7 +89,7 @@ class opennebula::head ($ensure="present") inherits opennebula::common {
                 default => "stopped",
             },
     }
-#    @@line {
+#    @@common::line {
 #        "oneadmin::rsa_pubkey" :
 #            line =>
 #            "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAlmSRkT7UTZgVpr5fRV2Q/24CNo+g6bTTyp0EDzCiPxs0u6DeKphjEw53y/zI/ZbWjGXAsqWx2ci2DUJacQEypp0Rxdx6+wxCp9cNUh+87ALlpdz2OrWyvFDj7oEkgSw9XlZpJjUfgTaa5gV/O59nmRegugaJkCkX2BWlgAJ9YZokOZmmHzyPmimoRqLhP8SW01r8+iWbraNSALn2c4NIsKIjgtWljJD6rXyD3Y7yDc41AYjtwUzjBSAnxFtJTwkZ2rPW8UZ+l2LeZjkt4buqtqcQ3cotYVqYJ24XxG4VTyrIXF5kZPRLrUB5eXa8+z9+AdiaD8ay2+js8/QW1NGDMQ== oneadmin@${hostname}",
